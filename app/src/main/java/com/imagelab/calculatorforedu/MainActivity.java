@@ -14,6 +14,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
+    //test pc sync
     boolean initstat= true;
     Button button_c;
     Button button0;
