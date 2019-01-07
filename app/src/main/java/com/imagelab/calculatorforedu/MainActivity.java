@@ -1,11 +1,15 @@
 package com.imagelab.calculatorforedu;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -39,15 +43,24 @@ public class MainActivity extends AppCompatActivity {
     Button button_equal;
 
     TextView textViewArithmetic;
+    TextView textViewArithmeticPreview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+
+
+
 
         textViewArithmetic = (TextView) findViewById(R.id.textViewArithmetic);
 
+        textViewArithmeticPreview = (TextView) findViewById(R.id.textViewArithmeticPreview);
+        textViewArithmeticPreview.setOnClickListener(textView_pnClickListener);
+
         button_c = (Button) findViewById(R.id.button_c);
         button_c.setOnClickListener(buttonClearClickListener);
+
 
         button0 = (Button) findViewById(R.id.button_0);
         button0.setOnClickListener(buttonNumClickListener);
@@ -90,6 +103,37 @@ public class MainActivity extends AppCompatActivity {
         Intent appLinkIntent = getIntent();
         String appLinkAction = appLinkIntent.getAction();
         Uri appLinkData = appLinkIntent.getData();
+
+
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        //Here you can get the size!
+        //button_c.setText(String.valueOf(button_c.getHeight()));
+        //button7.setTextSize(pxToDp(button7.getHeight()/2));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            //button7.setTextSize(pxToDp(button7.getHeight()/2));
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            //Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            //button7.setTextSize(pxToDp(button7.getHeight()/2));
+        }
+    }
+
+    public int pxToDp(int px) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int dp = Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return dp;
     }
 
     View.OnClickListener buttonClearClickListener =
@@ -121,6 +165,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
+    View.OnClickListener textView_pnClickListener =
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TextView clicked = (TextView) view;
+                    String value = clicked.getText().toString();
+
+                    if(initstat)
+                    {
+                        initstat = false;
+                        textViewArithmetic.setText("");
+                    }
+                    textViewArithmetic.append(value);
+                }
+            };
+
     View.OnClickListener buttonOperatorClickListener =
             new View.OnClickListener() {
                 @Override
@@ -149,7 +209,8 @@ public class MainActivity extends AppCompatActivity {
                     Expression calc = new ExpressionBuilder(calcString)
                             .build();
                     double result1 = calc.evaluate();
-                    textViewArithmetic.setText(String.valueOf(result1));
+                    //textViewArithmetic.setText(String.valueOf(result1));
+                    textViewArithmeticPreview.setText(String.valueOf(result1));
 
                 }
             };

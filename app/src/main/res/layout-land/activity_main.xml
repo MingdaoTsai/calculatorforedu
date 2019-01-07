@@ -58,47 +58,6 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <Button
-                    android:id="@+id/button_c"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:text="C"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/button_pn"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:text="+/-"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/button_percentage"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:text="%"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/button_del"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:text="DEL"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="18sp"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="105dp" />
             </TableRow>
 
             <TableRow
@@ -149,6 +108,16 @@
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="37dp"
                     tools:layout_editor_absoluteY="105dp" />
+
+                <Button
+                    android:id="@+id/button_c"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="C"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
@@ -199,6 +168,16 @@
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="37dp"
                     tools:layout_editor_absoluteY="105dp" />
+
+                <Button
+                    android:id="@+id/button_pn"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="+/-"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
@@ -248,6 +227,16 @@
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="37dp"
                     tools:layout_editor_absoluteY="105dp" />
+
+                <Button
+                    android:id="@+id/button_percentage"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="%"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
@@ -293,6 +282,18 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
                     android:text="+"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="37dp"
+                    tools:layout_editor_absoluteY="105dp" />
+
+                <Button
+                    android:id="@+id/button_del"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:text="DEL"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="37dp"
