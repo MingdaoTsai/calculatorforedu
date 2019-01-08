@@ -19,7 +19,6 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 public class MainActivity extends AppCompatActivity {
 
     //test pc sync
-    boolean initstat= true;
     Button button_c;
     Button button0;
     Button button1;
@@ -32,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     Button button8;
     Button button9;
 
+    Button button_leftp;
+    Button button_rightp;
+
     Button button_point;
 
     Button button_add;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     Button button_div;
     Button button_percentage;
 
+    Button button_del;
     Button button_equal;
 
     TextView textViewArithmetic;
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         textViewArithmetic = (TextView) findViewById(R.id.textViewArithmetic);
 
         textViewArithmeticPreview = (TextView) findViewById(R.id.textViewArithmeticPreview);
-        textViewArithmeticPreview.setOnClickListener(textView_pnClickListener);
+        textViewArithmeticPreview.setOnClickListener(textViewArithmeticPreviewClickListener);
 
         button_c = (Button) findViewById(R.id.button_c);
         button_c.setOnClickListener(buttonClearClickListener);
@@ -83,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         button9 = (Button) findViewById(R.id.button9);
         button9.setOnClickListener(buttonNumClickListener);
 
+        button_leftp = (Button) findViewById(R.id.button_leftp);
+        button_leftp.setOnClickListener(buttonNumClickListener);
+        button_rightp = (Button) findViewById(R.id.button_rightp);
+        button_rightp.setOnClickListener(buttonNumClickListener);
+
         button_point = (Button) findViewById(R.id.button_point);
         button_point.setOnClickListener(buttonNumClickListener);
 
@@ -96,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
         button_div.setOnClickListener(buttonOperatorClickListener);
         button_percentage = (Button) findViewById(R.id.button_percentage);
         button_percentage.setOnClickListener(buttonOperatorClickListener);
+
+        button_del = (Button) findViewById(R.id.button_del);
+        button_del.setOnClickListener(buttonDelClickListener);
 
         button_equal = (Button) findViewById(R.id.button_equal);
         button_equal.setOnClickListener(buttonEqualClickListener);
@@ -143,8 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     Button clicked = (Button) view;
                     String value = clicked.getText().toString();
 
-                    textViewArithmetic.setText("0");
-                    initstat=true;
+                    textViewArithmetic.setText("");
+                    textViewArithmeticPreview.setText("");
                 }
             };
 
@@ -155,29 +166,20 @@ public class MainActivity extends AppCompatActivity {
                     Button clicked = (Button) view;
                     String value = clicked.getText().toString();
 
-                    if(initstat)
-                    {
-                        initstat = false;
-                        textViewArithmetic.setText("");
-                    }
                     textViewArithmetic.append(value);
 
                 }
             };
 
-    View.OnClickListener textView_pnClickListener =
+    View.OnClickListener textViewArithmeticPreviewClickListener =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     TextView clicked = (TextView) view;
                     String value = clicked.getText().toString();
 
-                    if(initstat)
-                    {
-                        initstat = false;
-                        textViewArithmetic.setText("");
-                    }
-                    textViewArithmetic.append(value);
+
+                    textViewArithmetic.setText(value);
                 }
             };
 
@@ -192,6 +194,21 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             };
+
+    View.OnClickListener buttonDelClickListener =
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str =textViewArithmetic.getText().toString();
+                    if (str.length()>0)
+                    {
+                        str = str.substring(0, str.length() - 1);
+                    }
+                    textViewArithmetic.setText(str);
+                    //textViewArithmeticPreview.setText("");
+                }
+            };
+
 
     View.OnClickListener buttonEqualClickListener =
             new View.OnClickListener() {
@@ -210,8 +227,18 @@ public class MainActivity extends AppCompatActivity {
                             .build();
                     double result1 = calc.evaluate();
                     //textViewArithmetic.setText(String.valueOf(result1));
-                    textViewArithmeticPreview.setText(String.valueOf(result1));
+                    //textViewArithmeticPreview.setText(String.valueOf(result1));
+                    textViewArithmeticPreview.setText(fmt(result1));
 
                 }
             };
+
+    public static String fmt(double d)
+    {
+        if(d == (long) d)
+            return String.format("%d",(long)d);
+        else
+            return String.format("%s",d);
+    }
+
 }
