@@ -1,5 +1,6 @@
 package com.imagelab.calculatorforedu;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.ValidationResult;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,8 +55,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
+        //check density and set font size.
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
 
+        switch (metrics.densityDpi)
+        {
 
+        }
 
         textViewArithmetic = (TextView) findViewById(R.id.textViewArithmetic);
 
@@ -140,12 +147,27 @@ public class MainActivity extends AppCompatActivity {
             //button7.setTextSize(pxToDp(button7.getHeight()/2));
         }
     }
-
-    public int pxToDp(int px) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        int dp = Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-        return dp;
+    /*
+    private static String getDensityName(Context context) {
+        float density = context.getResources().getDisplayMetrics().density;
+        if (density >= 4.0) {
+            return "xxxhdpi";
+        }
+        if (density >= 3.0) {
+            return "xxhdpi";
+        }
+        if (density >= 2.0) {
+            return "xhdpi";
+        }
+        if (density >= 1.5) {
+            return "hdpi";
+        }
+        if (density >= 1.0) {
+            return "mdpi";
+        }
+        return "ldpi";
     }
+*/
 
     View.OnClickListener buttonClearClickListener =
             new View.OnClickListener() {
@@ -225,11 +247,16 @@ public class MainActivity extends AppCompatActivity {
                     calcString = calcString.replace('x','*');
                     Expression calc = new ExpressionBuilder(calcString)
                             .build();
-                    double result1 = calc.evaluate();
-                    //textViewArithmetic.setText(String.valueOf(result1));
-                    //textViewArithmeticPreview.setText(String.valueOf(result1));
-                    textViewArithmeticPreview.setText(fmt(result1));
 
+                    ValidationResult res = calc.validate();
+
+                    if(res.isValid()) {
+                        double result1 = calc.evaluate();
+                        textViewArithmeticPreview.setText(fmt(result1));
+                    }
+                    else{
+                        textViewArithmeticPreview.setText("ERR");
+                    }
                 }
             };
 
@@ -240,5 +267,6 @@ public class MainActivity extends AppCompatActivity {
         else
             return String.format("%s",d);
     }
+
 
 }
