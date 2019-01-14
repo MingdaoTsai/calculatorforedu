@@ -8,15 +8,20 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import net.objecthunter.exp4j.Expression;
-import net.objecthunter.exp4j.ExpressionBuilder;
-import net.objecthunter.exp4j.ValidationResult;
+//import net.objecthunter.exp4j.Expression;
+//import net.objecthunter.exp4j.ExpressionBuilder;
+//import net.objecthunter.exp4j.ValidationResult;
+
+import org.mariuszgromada.math.mxparser.Argument;
+import org.mariuszgromada.math.mxparser.Expression;
+import org.mariuszgromada.math.mxparser.mXparser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,20 +53,13 @@ public class MainActivity extends AppCompatActivity {
     Button button_equal;
 
     TextView textViewArithmetic;
-    TextView textViewArithmeticPreview;
+    public TextView textViewArithmeticPreview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        //check density and set font size.
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-
-        switch (metrics.densityDpi)
-        {
-
-        }
 
         textViewArithmetic = (TextView) findViewById(R.id.textViewArithmetic);
 
@@ -117,6 +115,14 @@ public class MainActivity extends AppCompatActivity {
 
         button_equal = (Button) findViewById(R.id.button_equal);
         button_equal.setOnClickListener(buttonEqualClickListener);
+
+
+        //顯示DPI type
+        //DisplayMetrics metrics = getResources().getDisplayMetrics();
+        //textViewArithmeticPreview.setText(String.valueOf(metrics.densityDpi));
+
+
+
         // ATTENTION: This was auto-generated to handle app links.
         Intent appLinkIntent = getIntent();
         String appLinkAction = appLinkIntent.getAction();
@@ -241,22 +247,14 @@ public class MainActivity extends AppCompatActivity {
 
                     //textViewTest1.setText(Build.MODEL);
                     //textViewArithmetic.append(value);
+
                     String calcString;
                     calcString = textViewArithmetic.getText().toString();
                     calcString = calcString.replace('÷','/');
                     calcString = calcString.replace('x','*');
-                    Expression calc = new ExpressionBuilder(calcString)
-                            .build();
 
-                    ValidationResult res = calc.validate();
+                    textViewArithmeticPreview.setText(ExpressionToDouble(calcString));
 
-                    if(res.isValid()) {
-                        double result1 = calc.evaluate();
-                        textViewArithmeticPreview.setText(fmt(result1));
-                    }
-                    else{
-                        textViewArithmeticPreview.setText("ERR");
-                    }
                 }
             };
 
@@ -268,5 +266,43 @@ public class MainActivity extends AppCompatActivity {
             return String.format("%s",d);
     }
 
+    //use mXparser lib
+    public static String ExpressionToDouble(String calc_str)
+    {
+        calc_str = calc_str.replace('÷','/');
+        calc_str = calc_str.replace('x','*');
 
+        Expression eh = new Expression(calc_str);
+        //String h = mXparser.number( eh.calculate() );
+
+        return fmt((double) eh.calculate());
+    }
+    /*
+    //use exp4j
+    public static String ExpressionToDouble(String calc_str)
+    {
+        calc_str = calc_str.replace('÷','/');
+        calc_str = calc_str.replace('x','*');
+
+        Expression calc;
+        try {
+            calc = new ExpressionBuilder(calc_str)
+                    .build();
+
+        }
+        catch (Exception e) {
+            return "ERR1";
+            //extViewArithmeticPreview.setText("not a valid expression");
+        }
+
+        ValidationResult res = calc.validate();
+
+        if (res.isValid()) {
+            double result1 = calc.evaluate();
+            return fmt(result1);
+        } else {
+            return "ERR2";
+        }
+    }
+    */
 }
