@@ -52,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
     Button button_del;
     Button button_equal;
 
+
+    TextView textViewDel;
+    TextView textView7;
+    TextView textView4;
+    TextView textView1;
+    TextView textView0;
+
     TextView textViewArithmetic;
     public TextView textViewArithmeticPreview;
     @Override
@@ -115,6 +122,19 @@ public class MainActivity extends AppCompatActivity {
 
         button_equal = (Button) findViewById(R.id.button_equal);
         button_equal.setOnClickListener(buttonEqualClickListener);
+
+
+        textViewDel = (TextView) findViewById(R.id.textViewDel);
+        textViewDel.setOnClickListener(buttonDelClickListener);
+
+        textView7 = (TextView) findViewById(R.id.textView7);
+        textView7.setOnClickListener(textViewNumClickListener);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView4.setOnClickListener(textViewNumClickListener);
+        textView1 = (TextView) findViewById(R.id.textView1);
+        textView1.setOnClickListener(textViewNumClickListener);
+        textView0 = (TextView) findViewById(R.id.textView0);
+        textView0.setOnClickListener(textViewNumClickListener);
 
 
         //顯示DPI type
@@ -199,6 +219,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
+    View.OnClickListener textViewNumClickListener =
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TextView clicked = (TextView) view;
+                    String value = clicked.getText().toString();
+
+                    textViewArithmetic.append(value);
+
+                }
+            };
+
     View.OnClickListener textViewArithmeticPreviewClickListener =
             new View.OnClickListener() {
                 @Override
@@ -235,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
                     textViewArithmetic.setText(str);
                     //textViewArithmeticPreview.setText("");
                 }
+
             };
 
 
