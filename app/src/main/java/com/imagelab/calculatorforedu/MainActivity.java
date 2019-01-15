@@ -22,42 +22,36 @@ import android.widget.TextView;
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.mariuszgromada.math.mxparser.mXparser;
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    //test pc sync
-    Button button_c;
-    Button button0;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-
-    Button button_leftp;
-    Button button_rightp;
-
-    Button button_point;
-
-    Button button_add;
-    Button button_minus;
-    Button button_multiply;
-    Button button_div;
-    Button button_percentage;
-
-    Button button_del;
-    Button button_equal;
 
 
     TextView textViewDel;
-    TextView textView7;
-    TextView textView4;
-    TextView textView1;
+    TextView textViewC;
+    TextView textViewLeftp;
+    TextView textViewRightp;
+
+
     TextView textView0;
+    TextView textView1;
+    TextView textView2;
+    TextView textView3;
+    TextView textView4;
+    TextView textView5;
+    TextView textView6;
+    TextView textView7;
+    TextView textView8;
+    TextView textView9;
+    TextView textViewPoint;
+    TextView textViewEqual;
+
+    TextView textViewDiv;
+    TextView textViewMultiply;
+    TextView textViewMinus;
+    TextView textViewAdd;
+
 
     TextView textViewArithmetic;
     public TextView textViewArithmeticPreview;
@@ -73,68 +67,57 @@ public class MainActivity extends AppCompatActivity {
         textViewArithmeticPreview = (TextView) findViewById(R.id.textViewArithmeticPreview);
         textViewArithmeticPreview.setOnClickListener(textViewArithmeticPreviewClickListener);
 
-        button_c = (Button) findViewById(R.id.button_c);
-        button_c.setOnClickListener(buttonClearClickListener);
-
-
-        button0 = (Button) findViewById(R.id.button_0);
-        button0.setOnClickListener(buttonNumClickListener);
-        button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(buttonNumClickListener);
-        button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(buttonNumClickListener);
-        button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(buttonNumClickListener);
-        button4 = (Button) findViewById(R.id.button4);
-        button4.setOnClickListener(buttonNumClickListener);
-        button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(buttonNumClickListener);
-        button6 = (Button) findViewById(R.id.button6);
-        button6.setOnClickListener(buttonNumClickListener);
-        button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(buttonNumClickListener);
-        button8 = (Button) findViewById(R.id.button8);
-        button8.setOnClickListener(buttonNumClickListener);
-        button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(buttonNumClickListener);
-
-        button_leftp = (Button) findViewById(R.id.button_leftp);
-        button_leftp.setOnClickListener(buttonNumClickListener);
-        button_rightp = (Button) findViewById(R.id.button_rightp);
-        button_rightp.setOnClickListener(buttonNumClickListener);
-
-        button_point = (Button) findViewById(R.id.button_point);
-        button_point.setOnClickListener(buttonNumClickListener);
-
-        button_add = (Button) findViewById(R.id.button_add);
-        button_add.setOnClickListener(buttonOperatorClickListener);
-        button_minus = (Button) findViewById(R.id.button_minus);
-        button_minus.setOnClickListener(buttonOperatorClickListener);
-        button_multiply = (Button) findViewById(R.id.button_multiply);
-        button_multiply.setOnClickListener(buttonOperatorClickListener);
-        button_div = (Button) findViewById(R.id.button_div);
-        button_div.setOnClickListener(buttonOperatorClickListener);
-        button_percentage = (Button) findViewById(R.id.button_percentage);
-        button_percentage.setOnClickListener(buttonOperatorClickListener);
-
-        button_del = (Button) findViewById(R.id.button_del);
-        button_del.setOnClickListener(buttonDelClickListener);
-
-        button_equal = (Button) findViewById(R.id.button_equal);
-        button_equal.setOnClickListener(buttonEqualClickListener);
-
-
         textViewDel = (TextView) findViewById(R.id.textViewDel);
-        textViewDel.setOnClickListener(buttonDelClickListener);
+        textViewDel.setOnClickListener(textViewDelClickListener);
+        textViewC = (TextView) findViewById(R.id.textViewC);
+        textViewC.setOnClickListener(textViewClearClickListener);
+        textViewLeftp = (TextView) findViewById(R.id.textViewLeftp);
+        textViewLeftp.setOnClickListener(textViewNumClickListener);
+        textViewRightp = (TextView) findViewById(R.id.textViewRightp);
+        textViewRightp.setOnClickListener(textViewNumClickListener);
 
-        textView7 = (TextView) findViewById(R.id.textView7);
-        textView7.setOnClickListener(textViewNumClickListener);
-        textView4 = (TextView) findViewById(R.id.textView4);
-        textView4.setOnClickListener(textViewNumClickListener);
-        textView1 = (TextView) findViewById(R.id.textView1);
-        textView1.setOnClickListener(textViewNumClickListener);
         textView0 = (TextView) findViewById(R.id.textView0);
         textView0.setOnClickListener(textViewNumClickListener);
+        textView1 = (TextView) findViewById(R.id.textView1);
+        textView1.setOnClickListener(textViewNumClickListener);
+        textView2 = (TextView) findViewById(R.id.textView2);
+        textView2.setOnClickListener(textViewNumClickListener);
+        textView3 = (TextView) findViewById(R.id.textView3);
+        textView3.setOnClickListener(textViewNumClickListener);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView4.setOnClickListener(textViewNumClickListener);
+        textView5 = (TextView) findViewById(R.id.textView5);
+        textView5.setOnClickListener(textViewNumClickListener);
+        textView6 = (TextView) findViewById(R.id.textView6);
+        textView6.setOnClickListener(textViewNumClickListener);
+        textView7 = (TextView) findViewById(R.id.textView7);
+        textView7.setOnClickListener(textViewNumClickListener);
+        textView8 = (TextView) findViewById(R.id.textView8);
+        textView8.setOnClickListener(textViewNumClickListener);
+        textView9 = (TextView) findViewById(R.id.textView9);
+        textView9.setOnClickListener(textViewNumClickListener);
+
+        textViewPoint = (TextView) findViewById(R.id.textViewPoint);
+        textViewPoint.setOnClickListener(textViewNumClickListener);
+
+
+        textViewAdd = (TextView) findViewById(R.id.textViewAdd);
+        textViewAdd.setOnClickListener(textViewOperatorClickListener);
+        textViewMinus = (TextView) findViewById(R.id.textViewMinus);
+        textViewMinus.setOnClickListener(textViewOperatorClickListener);
+        textViewMultiply = (TextView) findViewById(R.id.textViewMultiply);
+        textViewMultiply.setOnClickListener(textViewOperatorClickListener);
+        textViewDiv = (TextView) findViewById(R.id.textViewDiv);
+        textViewDiv.setOnClickListener(textViewOperatorClickListener);
+
+
+        textViewEqual = (TextView) findViewById(R.id.textViewEqual);
+        textViewEqual.setOnClickListener(textViewEqualClickListener);
+
+
+
+
+
 
 
         //顯示DPI type
@@ -195,11 +178,11 @@ public class MainActivity extends AppCompatActivity {
     }
 */
 
-    View.OnClickListener buttonClearClickListener =
+    View.OnClickListener textViewClearClickListener =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Button clicked = (Button) view;
+                    TextView clicked = (TextView) view;
                     String value = clicked.getText().toString();
 
                     textViewArithmetic.setText("");
@@ -207,17 +190,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    View.OnClickListener buttonNumClickListener =
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Button clicked = (Button) view;
-                    String value = clicked.getText().toString();
-
-                    textViewArithmetic.append(value);
-
-                }
-            };
 
     View.OnClickListener textViewNumClickListener =
             new View.OnClickListener() {
@@ -243,11 +215,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    View.OnClickListener buttonOperatorClickListener =
+    View.OnClickListener textViewOperatorClickListener =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Button clicked = (Button) view;
+                    TextView clicked = (TextView) view;
                     String value = clicked.getText().toString();
 
                     textViewArithmetic.append(value);
@@ -255,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    View.OnClickListener buttonDelClickListener =
+    View.OnClickListener textViewDelClickListener =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -271,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
             };
 
 
-    View.OnClickListener buttonEqualClickListener =
+    View.OnClickListener textViewEqualClickListener =
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

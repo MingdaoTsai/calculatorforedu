@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?android:attr/windowBackground"
         android:orientation="vertical">
 
         <LinearLayout
@@ -58,52 +59,47 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_c"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            <TextView
+                android:id="@+id/textViewC"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:lines="1"
                 android:text="C"
+                android:textAllCaps="false"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/text_size"
-                android:visibility="visible" />
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
-            <Button
-                android:id="@+id/button_leftp"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            <TextView
+                android:id="@+id/textViewLeftp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:lines="1"
                 android:text="("
+                android:textAllCaps="false"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/text_size"
-                android:visibility="visible" />
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
-            <Button
-                android:id="@+id/button_rightp"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            <TextView
+                android:id="@+id/textViewRightp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="0dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:lines="1"
                 android:text=")"
+                android:textAllCaps="false"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/text_size"
-                android:visibility="visible" />
-
-            <Button
-                android:id="@+id/button_percentage"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="%"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/text_size"
-                android:visibility="gone" />
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/textViewDel"
@@ -114,22 +110,10 @@
                 android:gravity="center"
                 android:lines="1"
                 android:text="DEL"
+                android:textAllCaps="false"
                 android:textColor="@android:color/holo_blue_dark"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
                 app:autoSizeTextType="uniform" />
-
-            <Button
-                android:id="@+id/button_del"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="0dp"
-                android:text="Del"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/text_size"
-                android:visibility="gone"
-                tools:layout_editor_absoluteX="37dp"
-                tools:layout_editor_absoluteY="105dp" />
 
         </LinearLayout>
 
@@ -154,7 +138,9 @@
                     android:gravity="center"
                     android:lines="1"
                     android:text="7"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
                 <TextView
@@ -166,7 +152,9 @@
                     android:gravity="center"
                     android:lines="1"
                     android:text="4"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
                 <TextView
@@ -178,7 +166,9 @@
                     android:gravity="center"
                     android:lines="1"
                     android:text="1"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
                 <TextView
@@ -190,58 +180,11 @@
                     android:gravity="center"
                     android:lines="1"
                     android:text="0"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button7"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:autoText="true"
-                    android:padding="0dp"
-                    android:text="7"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/button4"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:padding="0dp"
-                    android:text="4"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/button1"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:padding="0dp"
-                    android:text="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/button_0"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.25"
-                    android:padding="0dp"
-                    android:text="0"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size"
-                    android:visibility="gone" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -250,49 +193,61 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button8"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="8"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button5"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="5"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button2"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="2"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button_point"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewPoint"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="."
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
             </LinearLayout>
 
@@ -302,49 +257,61 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button9"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="9"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button6"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="6"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button3"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="3"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button_equal"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewEqual"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="="
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
             </LinearLayout>
 
@@ -354,58 +321,62 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button_div"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewDiv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="÷"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/text_size"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="105dp" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button_multiply"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewMultiply"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="x"
                     android:textAllCaps="false"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/text_size"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="105dp" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button_minus"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewMinus"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="-"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/text_size"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="105dp" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-                <Button
-                    android:id="@+id/button_add"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                <TextView
+                    android:id="@+id/textViewAdd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
-                    android:padding="0dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:lines="1"
                     android:text="+"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="@dimen/text_size"
-                    tools:layout_editor_absoluteX="37dp"
-                    tools:layout_editor_absoluteY="105dp" />
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
             </LinearLayout>
 
         </LinearLayout>
