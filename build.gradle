@@ -33,8 +33,5 @@ plugins {
 sonarqube {
   properties {
     property "sonar.projectKey", "MingdaoTsai_calculatorforedu"
-    property "sonar.organization", "mingdaotsai"
-    property "sonar.host.url", "https://sonarcloud.io"
-    property "sonar.login", "8c00199bdbc8b8d36bdce9e8afd07c6116047655"
   }
 }
